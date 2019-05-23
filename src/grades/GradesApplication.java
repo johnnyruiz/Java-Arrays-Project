@@ -6,12 +6,7 @@ import java.util.Scanner;
 public class GradesApplication {
 
 
-//    public static void ListStudents(HashMap hashmap){
-//        hashmap.get
-//
-//    }
 
-    System.out.println(students.keySet().toString());
 
     public static void main(String[] args) {
 
@@ -34,6 +29,7 @@ public class GradesApplication {
 
         System.out.println("Hello User");
         System.out.println("Which student's Grades would you like to view?");
+        System.out.println(students.keySet().toString());
         String userResponse = scan.nextLine();
         System.out.format();
 
