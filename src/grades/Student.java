@@ -25,8 +25,6 @@ public class Student {
             sum += grades.get(i);
         }
         return sum / grades.size();
-
-
     }
 
     public void addGrade(int Grade) {

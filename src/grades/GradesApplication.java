@@ -5,10 +5,12 @@ import java.util.HashMap;
 public class GradesApplication {
 
 
-    public static void ListStudents(HashMap hashmap){
+//    public static void ListStudents(HashMap hashmap){
+//        hashmap.get
+//
+//    }
 
-    }
-
+    System.out.println(students.keySet().toString());
 
     public static void main(String[] args) {
         HashMap<String ,Student> students = new HashMap<>();
