@@ -5,12 +5,14 @@ import java.util.Scanner;
 
 public class GradesApplication {
 
+public static void listusernames(){
 
+}
 
 
     public static void main(String[] args) {
 
-        Scanner scan = new Scanner();
+        Scanner scan = new Scanner(System.in);
 
         HashMap<String ,Student> students = new HashMap<>();
         Student bob = new Student("Bob");
@@ -25,13 +27,23 @@ public class GradesApplication {
         synthia.addGrade(63,23,98,87,56);
         cloey.addGrade(85,47,100,74,94);
         ted.addGrade(85,84,96,63,100);
+//        students.forEach((key,value) -> System.out.println("Username :"+key));
 
 
         System.out.println("Hello User");
         System.out.println("Which student's Grades would you like to view?");
-        System.out.println(students.keySet().toString());
+        students.forEach((key,value) -> System.out.print(" ["+key+"] "));
+        System.out.print("\n");
+
         String userResponse = scan.nextLine();
-        System.out.format();
+
+        students.forEach((key,value) -> {
+                if (userResponse.equals(key)){
+                    System.out.println(value.getGradeAverage());
+                }
+
+        });
+
 
 
 
