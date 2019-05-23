@@ -5,8 +5,26 @@ import java.util.Scanner;
 
 public class GradesApplication {
 
-public static void listusernames(){
+public static String listusernames(HashMap Hm){
 
+    Scanner scan = new Scanner(System.in);
+    System.out.println("Which student's Grades would you like to view?");
+    Hm.forEach((key,value) -> System.out.print(" ["+key+"] "));
+    System.out.print("\n");
+
+    String userResponse = scan.nextLine();
+
+    Hm.forEach((key,value) -> {
+        if (userResponse.equals(key)){
+            System.out.println(value.);
+            return userResponse;
+        }else{
+
+            listusernames(Hm);
+            return userResponse;
+        }
+
+    });
 }
 
 
@@ -31,19 +49,15 @@ public static void listusernames(){
 
 
         System.out.println("Hello User");
-        System.out.println("Which student's Grades would you like to view?");
-        students.forEach((key,value) -> System.out.print(" ["+key+"] "));
-        System.out.print("\n");
-
-        String userResponse = scan.nextLine();
-
+        listusernames(students);
         students.forEach((key,value) -> {
-                if (userResponse.equals(key)){
-                    System.out.println(value.getGradeAverage());
-                }
+            if (userResponse.equals(key)){
+                System.out.println(value.);
+            }else{
+                listusernames(students);
+            }
 
         });
-
 
 
 
