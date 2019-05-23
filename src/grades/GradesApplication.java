@@ -66,16 +66,16 @@ public class GradesApplication {
 //        }
 
             students.forEach((key, value) -> System.out.print(" [" + key + "] "));
-            System.out.print("\n");
+            System.out.print("\nEnter a name: ");
             userResponse = scan.nextLine();
             while (!contains(userResponse, users)) {
                 System.out.println(userResponse + " Is not a UserName\nPlease enter in students UserName");
                 students.forEach((key, value) -> System.out.print(" [" + key + "] "));
-                System.out.println("\n");
+                System.out.println("\nEnter a name: ");
                 userResponse = scan.nextLine();
             }
 
-            System.out.println(students.get(userResponse).getGradeAverage());
+            System.out.println(userResponse + "'s grade average is: " + students.get(userResponse).getGradeAverage() + " %");
 
             Continue();
         }
