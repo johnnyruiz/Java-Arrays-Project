@@ -6,6 +6,23 @@ import java.util.Scanner;
 
 public class GradesApplication {
 
+    public static void Continue(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Would you like to continue?");
+        String userconfirm = scan.nextLine();
+        while (!(userconfirm.contains("y") || userconfirm.contains("n"))){
+            System.out.println("Would you like to continue?");
+            userconfirm = scan.nextLine();
+        }
+        if (userconfirm.contains("y")){
+            System.out.println("You will Continue");
+        }else{
+            System.out.println("Exiting...");
+            System.exit(0);
+        }
+
+    }
+
 
     public static boolean contains(String input,ArrayList array){
         for (int i = 0; i < array.size();i++) {
@@ -35,25 +52,33 @@ public class GradesApplication {
         ted.addGrade(85,84,96,63,100);
         ArrayList<String> users = new ArrayList<>();
         System.out.println("Hello User");
-        System.out.println("Which student's Grades would you like to view?");
-        String userResponse = "";
-        students.forEach((key,value) -> users.add(key));
+
+
+        String userconfirm = "";
+
+        while (userconfirm.equals("")) {
+            System.out.println("Which student's Grades would you like to view?");
+            String userResponse = "";
+            students.forEach((key, value) -> users.add(key));
 
 //        for (int i = 0; i < users.size();i++) {
 //            System.out.println(users.get(i));
 //        }
 
-        students.forEach((key, value) -> System.out.print(" [" + key + "] "));
-        System.out.print("\n");
-        userResponse = scan.nextLine();
-        while (!contains(userResponse,users)){
-            System.out.println(userResponse+" Is not a UserName\nPlease enter in students UserName");
             students.forEach((key, value) -> System.out.print(" [" + key + "] "));
-            System.out.println("\n");
+            System.out.print("\n");
             userResponse = scan.nextLine();
-        }
+            while (!contains(userResponse, users)) {
+                System.out.println(userResponse + " Is not a UserName\nPlease enter in students UserName");
+                students.forEach((key, value) -> System.out.print(" [" + key + "] "));
+                System.out.println("\n");
+                userResponse = scan.nextLine();
+            }
 
-        System.out.println(students.get(userResponse).getGradeAverage());
+            System.out.println(students.get(userResponse).getGradeAverage());
+
+            Continue();
+        }
 
 
 
