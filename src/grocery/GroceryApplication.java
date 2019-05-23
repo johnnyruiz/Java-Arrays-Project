@@ -4,12 +4,15 @@ import java.util.Scanner;
 
 public class GroceryApplication {
     public static String userItem(String str){
-        String Item;
+        String confirm;
         Scanner scan = new Scanner(System.in);
         if(str.equalsIgnoreCase("yes")){
-            System.out.println("enter a new item : ");
-            Item = scan.nextLine();
-            return Item;
+            System.out.println("Would you like to enter a new item?(yes/no)");
+            confirm = scan.nextLine();
+            if(confirm.equalsIgnoreCase("yes")){
+                //this is where we put the three prompts
+            }
+            return confirm;
         } else {
             return "Goodbye";
         }
