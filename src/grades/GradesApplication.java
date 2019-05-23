@@ -7,11 +7,13 @@ import java.util.Scanner;
 public class GradesApplication {
 
 
-    public static String has(ArrayList array){
+    public static boolean contains(String input,ArrayList array){
         for (int i = 0; i < array.size();i++) {
-            return array.get(i).toString();
+            if (array.get(i).toString().equals(input)){
+                return true;
+            }
         }
-            return "error";
+            return false;
     }
 
     public static void main(String[] args) {
@@ -34,21 +36,23 @@ public class GradesApplication {
         ArrayList<String> users = new ArrayList<>();
         System.out.println("Hello User");
         System.out.println("Which student's Grades would you like to view?");
-        String userResponse;
+        String userResponse = "";
         students.forEach((key,value) -> users.add(key));
 
-        for (int i = 0; i < users.size();i++) {
-            System.out.println(users.get(i));
+//        for (int i = 0; i < users.size();i++) {
+//            System.out.println(users.get(i));
+//        }
+
+        students.forEach((key, value) -> System.out.print(" [" + key + "] "));
+        System.out.print("\n");
+        userResponse = scan.nextLine();
+        while (!contains(userResponse,users)){
+            System.out.println(userResponse+" Is not a UserName\nPlease enter in students UserName");
+            students.forEach((key, value) -> System.out.print(" [" + key + "] "));
+            System.out.println("\n");
+            userResponse = scan.nextLine();
         }
 
-        do{
-            students.forEach((key, value) -> System.out.print(" [" + key + "] "));
-            userResponse = scan.nextLine();
-            System.out.println(students.get(userResponse).getGradeAverage());
-
-        }while (!userResponse.equals(has(users)));
-
-        students.get(userResponse).getGradeAverage();
         System.out.println(students.get(userResponse).getGradeAverage());
 
 
